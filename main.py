@@ -50,23 +50,23 @@ def print_output(word, test):
     global masked_word
     masked_word = target_word
     output = ""
-    print(masked_word)
+    # print(masked_word)
     for i, letter in enumerate(word):
         if letter.lower() == test[i]:  # Check for correct position
             # Update masked word to remove correct letter
             masked_word = masked_word[:i] + '-' + masked_word[i+1:]
         elif letter.lower() != test[i]:
             masked_word = masked_word
-    print(masked_word)
+    # print(masked_word)
     for i, letter in enumerate(word):
         if masked_word[i] == '-':
             output += "\033[92m{}\033[0m".format(letter.upper())                # correct letter already guessed
-            print(masked_word + " G")
+            # print(masked_word + " G")
         elif letter.lower() in masked_word:
             output += "\033[93m{}\033[0m".format(letter.upper())    # set color to yellow
             index = masked_word.index(letter.lower())
             masked_word = masked_word[:index] + '*' + masked_word[index + 1:]   # remove Yellow letter from Masked Word
-            print(masked_word + " Y")
+            # print(masked_word + " Y")
         else:
             output += "\033[30m{}\033[0m".format(letter.upper())  # set color to black
     return output
