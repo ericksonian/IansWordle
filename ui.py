@@ -1,4 +1,5 @@
 import tkinter as tk
+from keyboard import KeyboardFrame
 
 class WordleUI(tk.Tk):
     def __init__(self):
@@ -17,6 +18,10 @@ class WordleUI(tk.Tk):
         for i in range(5):
             letter_label = tk.Label(self.top_row_frame, text="", font=("Arial", 30), width=2, height=1, relief=tk.RIDGE, bd=2)
             letter_label.grid(row=0, column=i, padx=5, pady=5)
+
+        self.keyboard = KeyboardFrame(self)
+        self.keyboard.pack()
+
 
 if __name__ == "__main__":
     app = WordleUI()
